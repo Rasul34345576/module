@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Module 4 Solution (All in One)</title>
+</head>
+<body>
+    <h1>Module 4 Solution — Open Console</h1>
+
+<script>
+// ===== helloSpeaker.js =====
+(function (window) {
+  let helloSpeaker = {};
+
+  helloSpeaker.speak = function (name) {
+    console.log("Hello " + name);
+  };
+
+  window.helloSpeaker = helloSpeaker;
+
+})(window);
+
+
+// ===== byeSpeaker.js =====
+(function (window) {
+  let byeSpeaker = {};
+
+  byeSpeaker.speak = function (name) {
+    console.log("Goodbye " + name);
+  };
+
+  window.byeSpeaker = byeSpeaker;
+
+})(window);
+
+
+// ===== script.js =====
+(function () {
+
+  let names = [
+    "Yaakov", "John", "Jen", "Jason",
+    "Paul", "Frank", "Larry",
+    "Paula", "Laura", "Jim"
+  ];
+
+  for (let i = 0; i < names.length; i++) {
+    let firstLetter = names[i].charAt(0).toLowerCase();
+
+    if (firstLetter === "j") {
+      byeSpeaker.speak(names[i]);
+    } else {
+      helloSpeaker.speak(names[i]);
+    }
+  }
+
+})();
+</script>
+
+</body>
+</html>
